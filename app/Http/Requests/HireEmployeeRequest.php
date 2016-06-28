@@ -32,7 +32,7 @@ class HireEmployeeRequest extends Request {
 			'employee.vehicle_id' => 'required|exists:vehicle,id',
 			'employee.plate_number' => 'required|unique:employee,plate_number',
 			'employee.start_service' => 'required|date_format:h:i',
-			'employee.end_service' => 'required|date_format:h:i|after:employee.start_service',
+			'employee.end_service' => 'required|date_format:h:i',
 			'employee.wage_over_distance' => 'required'
 		];
 	}

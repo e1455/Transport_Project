@@ -9,7 +9,7 @@
     <title>test</title>
 
     @include('layout.css')
-    @yield('css')
+
 
 
   </head>
@@ -51,7 +51,7 @@
 
       <!-- Start JavaScript -->
         @include('layout.js')
-        @yield('js')
+
       <!-- End JavaScript -->
 
 

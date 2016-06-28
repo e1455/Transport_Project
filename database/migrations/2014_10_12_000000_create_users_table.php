@@ -48,6 +48,7 @@ class CreateUsersTable extends Migration {
 			$table->time('start_service');
 			$table->time('end_service');
 			$table->decimal('wage_over_distance',8,2);
+			$table->integer('score',false)->default(0);
 
 
 			$table->foreign('user_id')
