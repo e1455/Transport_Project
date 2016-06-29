@@ -27,4 +27,13 @@ class Employee extends Model {
         return $this->hasOne('App\User','id','user_id');
     }
 
+    public function service(){
+        return $this->hasMany('App\Service','user_id','user_id');
+    }
+
+    public function vehicle ()
+    {
+        return $this->belongsTo('App\Vehicle','vehicle_id','id');
+    }
+
 }

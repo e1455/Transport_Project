@@ -9,12 +9,14 @@
 <script src="{!! url('public')!!}/assets/plugins/bootbox/bootbox.min.js"></script> <!-- Modal with Validation -->
 <script src="{!! url('public')!!}/assets/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> <!-- Custom Scrollbar sidebar -->
 <script src="{!! url('public')!!}/assets/plugins/bootstrap-dropdown/bootstrap-hover-dropdown.min.js"></script> <!-- Show Dropdown on Mouseover -->
-<script src="{!! url('public')!!}/assets/plugins/charts-sparkline/sparkline.min.js"></script> <!-- Charts Sparkline -->
 <script src="{!! url('public')!!}/assets/plugins/retina/retina.min.js"></script> <!-- Retina Display -->
 <script src="{!! url('public')!!}/assets/plugins/select2/select2.min.js"></script> <!-- Select Inputs -->
 <script src="{!! url('public')!!}/assets/plugins/icheck/icheck.min.js"></script> <!-- Checkbox & Radio Inputs -->
 <script src="{!! url('public')!!}/assets/plugins/backstretch/backstretch.min.js"></script> <!-- Background Image -->
 <script src="{!! url('public')!!}/assets/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script> <!-- Animated Progress Bar -->
+
+
+
 <script src="{!! url('public')!!}/assets/js/sidebar_hover.js"></script> <!-- Sidebar on Hover -->
 <script src="{!! url('public')!!}/assets/js/application.js"></script> <!-- Main Application Script -->
 <script src="{!! url('public')!!}/assets/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->

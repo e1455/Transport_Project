@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class ExistRequest extends Request {
+class Pay extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class ExistRequest extends Request {
 	public function rules()
 	{
 		return [
-			'user_id' => 'required|exists:employee,user_id'
+			//
 		];
 	}
 

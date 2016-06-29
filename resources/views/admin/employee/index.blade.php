@@ -3,47 +3,53 @@
     <link href="{!! url('public') !!}/assets/plugins/datatables/dataTables.min.css" rel="stylesheet">
 @endsection
 @section('content')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <div class="close" data-dismiss="alert">X</div>
-            <strong>اخطار!</strong> لطفا مشکلات زیر را رفع کنید<br><br>
-            <?php $i=0?>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{++$i}}-&nbsp;{{ $error }}</li>
-                @endforeach
-            </ul>
+    <div class="header">
+        <h2 style="visibility: hidden">Tables <strong>Dynamic</strong></h2>
+        <div class="breadcrumb-wrapper">
 
+            <ol class="breadcrumb" >
+                <li style="text-transform: capitalize;font-size:1em;"><a href="{!! route('ShowEmployee') !!}">Employees list</a>
+                </li>
+            </ol>
         </div>
-    @endif
+    </div>
+
+    @include('errors.message')
+
     <div class="row">
         <div class="col-lg-12 portlets">
             <div class="panel">
                 <div class="panel-header panel-controls">
-                    <h3><i class="fa fa-table"></i> <strong>Sorting </strong> table</h3>
+                    <h2 style="text-transform: capitalize"><i class="fa fa-table"></i>Employees List</h2>
                 </div>
                 <div class="panel-content pagination2 table-responsive">
                     <table class="table table-hover table-dynamic">
                         <thead>
                         <tr>
-                            <th class="text-center">Name</th>
-                            <th class="text-center">National Code</th>
-                            <th class="text-center">Email</th>
-                            <th class="text-center">Score</th>
-                            <th class="text-center">Actions</th>
+                            <th class="text-center" style="text-transform: capitalize;font-size: 1.1em;">Name</th>
+                            <th class="text-center" style="text-transform: capitalize;font-size: 1.1em;">National Code</th>
+                            <th class="text-center" style="text-transform: capitalize;font-size: 1.1em;">Email</th>
+                            <th class="text-center" style="text-transform: capitalize;font-size: 1.1em;">Score</th>
+                            <th class="text-center" style="text-transform: capitalize;font-size: 1.1em;">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
 
                         @foreach($employees as $employee)
                             <tr>
-                                <td class="text-center">{!! $employee->user->name !!}&nbsp;{!! $employee->user->family !!}</td>
+
+                                    <td class="text-center">
+                                        <a href="{!! route('ReportEmployee',['id'=>$employee->user_id,'name'=>$employee->user->name.'-'.$employee->user->family]) !!}">
+                                        {!! $employee->user->name !!}&nbsp;{!! $employee->user->family !!}
+                                        </a>
+                                    </td>
+
                                 <td class="text-center">{!! $employee->user->national_code !!}</td>
                                 <td class="text-center">{!! $employee->user->email !!}</td>
                                 <td class="text-center">{!! $employee->score !!}</td>
                                 <td class="text-center">
-                                    <button type="button" name="{!! $employee->user_id !!}" onclick="getUserId(this.name)"  class="btn btn-warning btn-embossed" data-toggle="modal" data-target="#full-colored" >Delete</button>
-                                    <a href="{!! route('EditEmployee',['id'=>$employee->user_id]) !!}"> <button type="button" class="btn btn-dark btn-embossed">Edit</button></a>
+                                    <button type="button" name="{!! $employee->user_id !!}" onclick="getUserId(this.name)"  class="btn btn-danger" data-toggle="modal" data-target="#full-colored" ><i class="glyphicon glyphicon-remove"></i>Delete</button>
+                                    <a href="{!! route('EditEmployee',['id'=>$employee->user_id]) !!}"> <button type="button" class="btn btn-dark btn-embossed"><i class="glyphicon glyphicon-pencil"></i>Edit</button></a>
                                 </td>
                             </tr>
                         @endforeach

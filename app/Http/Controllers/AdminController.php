@@ -86,7 +86,7 @@ class AdminController extends Controller {
         $employee = Employee::find($id);
         $employee->load('user');
         $vehicles = Vehicle::all();
-        return view('admin.employee.edit',compact('employee','vehicles'));
+        return view('admin.employee.edit',compact('employee','vehicles'))->with('title','Edit Information');
 
     }
 
@@ -106,7 +106,7 @@ class AdminController extends Controller {
         $employee = Employee::find($request->get('id'));
         $employee->update($request->get('employee'));
 
-        return redirect()->route('EditEmployee',['id'=>$request->get('id')]);
+        return redirect()->route('EditEmployee',['id'=>$request->get('id')])->with('message','Changes Have Saved!');
 
     }
 
@@ -120,7 +120,7 @@ class AdminController extends Controller {
     public function destroy(ExistRequest $request)
     {
         User::destroy($request->get('user_id'));
-        return redirect()->back();
+        return redirect()->back()->with('message','Employee\'s Data Have Been Deleted!');
     }
 
 

@@ -42,9 +42,9 @@ class CreateUsersTable extends Migration {
 
 		Schema::create('employee', function(Blueprint $table)
 		{
-			$table->integer('user_id',false,true);
+			$table->integer('user_id',false,true)->unique();
 			$table->integer('vehicle_id',false,true);
-			$table->string('plate_number');
+			$table->string('plate_number')->unique();;
 			$table->time('start_service');
 			$table->time('end_service');
 			$table->decimal('wage_over_distance',8,2);
@@ -61,7 +61,22 @@ class CreateUsersTable extends Migration {
 		});
 
 
+		Schema::create('service', function(Blueprint $table)
+		{
+			$table->integer('user_id',false,true)->unique();;
+			$table->string('customer_info',800);
+			$table->date('date_service');
+			$table->time('start_service');
+			$table->time('end_service');
+			$table->integer('score');
+			$table->decimal('distance');
+			$table->boolean('payed')->default(false);
 
+
+			$table->foreign('user_id')
+				->references('id')->on('users')
+				->onDelete('cascade');
+		});
 
 
 	}
@@ -73,10 +88,12 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::drop('users');
+		Schema::drop('service');
+		Schema::drop('employee');
 		Schema::drop('role');
 		Schema::drop('vehicle');
-		Schema::drop('users');
-		Schema::drop('employee');
+
 	}
 
 }

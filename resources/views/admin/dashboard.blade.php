@@ -6,7 +6,7 @@
     <meta name="description" content="admin-themes-lab">
     <meta name="author" content="themes-lab">
     <link rel="shortcut icon" href="{!! url('public') !!}/assets/images/favicon.png" type="image/png">
-    <title>test</title>
+    <title>{{$title}}</title>
 
     @include('layout.css')
 

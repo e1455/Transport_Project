@@ -46,4 +46,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	}
 
+	public function getNameAttribute($value)
+	{
+		return ucfirst($value);
+	}
+
+	public function getFamilyAttribute($value)
+	{
+		return ucfirst($value);
+	}
+
 }
